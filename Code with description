@@ -1,0 +1,78 @@
+Viewing Video with PiCamera
+Let’s get started. Here is a simple program from the PiCamera documentation to view the camera feed:
+from picamera import PiCamera
+
+from time import sleep
+
+
+
+
+camera = PiCamera()
+
+camera.start_preview()
+
+sleep(20)
+
+camera.stop_preview()
+This will display the camera on the video screen for 20 seconds.
+
+-------------------------------------------------------------------------------------------------
+
+To create the file:
+    • Use the text editor nano, “nano camera.py”
+    • Copy and paste the program into the text file:
+    
+    from picamera import PiCamera
+    from time import sleep
+    camera = PiCamera()
+    camera.start_preview()
+    sleep(20)
+    camera.stop_preview()
+
+    • “Ctrl-x”, “y” and then “enter” to save the file as “py”
+    
+-------------------------------------------------------------------------------------------------------
+    
+    To run it:
+    • Type in, “chmod 777 camera.py” to make it executable
+    • Then, “python3 ./camera.py”
+And that is it! The video display should show the camera feed.
+
+-------------------------------------------------------------------------------------------------------
+
+
+Recording Video with PiCamera
+Here is a simple program to record a feed, a simple date time stamp has been added:
+import datetime
+
+import time
+
+date = datetime.datetime.now().strftime("%m_%d_%Y_%H_%M_%S")
+
+import picamera
+
+with picamera.PiCamera() as camera:
+
+camera.start_preview()
+
+camera.start_recording("/home/pi/"+ date + "video.h264")
+
+camera.wait_recording(30)
+
+camera.stop_recording()
+
+camera.stop_preview()
+
+This will display the camera on the monitor for 30 seconds, and record it to a file called “video.h264”, with a date/ time 
+stamp, in your “/home/pi/” folder. Simply save the file as “record.py”, make it executable, and then run it as we did the 
+previous program.
+
+Remote Streaming with PiCamera
+Viewing the camera directly is nice, but for a surveillance camera, we need to be able to access it remotely. The PiCamera Documentation Webpage includes a script for accessing PiCamera from a remote system. The script is located here, just save it as a .py file, make it an executable file and run it.
+
+Now on a remote system on your network, open a browser and surf to:
+[Your_IP_Address]:8000
+And you should see the feed from your camera or device.
+    
+    
+    
