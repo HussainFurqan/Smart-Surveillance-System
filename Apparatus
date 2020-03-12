@@ -1,0 +1,5 @@
+Apparatus: Raspberry pi, Pi camera, Internet hotspot, a device to view video
+
+ We connected camera to the raspberry pi and started it to see if it is working, after checking we wrote a script 
+ which enabled us  to make the camera work , finally we used the tutorial on the python website to connect it to the 
+ web server , more will be explained in the procedure section 
